@@ -15,10 +15,6 @@ def get_mentions(current_comment):
     filtered_mentions = [mention for mention in mentions if is_user_exist(mention)]
     return filtered_mentions
 
-
-url_name_user = 'beautybar.rus'
-url_post_istagram = 'https://www.instagram.com/p/BtON034lPhu/'
-
 #ссылка из урока
 url_name_user = 'beautybar.rus'
 url_post_istagram = 'https://www.instagram.com/p/BtON034lPhu/'
@@ -34,9 +30,6 @@ bot.login(username=instagram_login, password=instagram_passwd)
 media_id = bot.get_media_id_from_link(url_post_istagram)
 
 comment_users = set()
-comment_index = 1
-
-
 for comment_full in bot.get_media_comments_all(media_id, False):
     comment = comment_full["text"]
     current_user_and_usercomment = get_mentions(comment)
