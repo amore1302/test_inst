@@ -29,12 +29,12 @@ bot.login(username=instagram_login, password=instagram_passwd)
 
 media_id = bot.get_media_id_from_link(url_post_istagram)
 
+
 comment_users = set()
-for comment_full in bot.get_media_comments_all(media_id, False):
+for comment_full in bot.get_media_comments_all(media_id, False)[1063:1064]:
     comment = comment_full["text"]
-    current_user_and_usercomment = get_mentions(comment)
-    if current_user_and_usercomment:
-        comment_author = comment_full["user"]["username"]
-        print(comment_author)
-        comment_users.add(comment_author)
-print(comment_users)
+    print("-----")
+    print(comment)
+    print(comment_full)
+    comment_author = comment_full["user"]["username"]
+    print(comment_author)
